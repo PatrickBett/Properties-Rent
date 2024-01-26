@@ -28,3 +28,9 @@ li {
 .nav-link:hover{
   border-bottom: 4px solid burlywood;
 }
+
+.logo{
+  font-size: 30px;
+  font-weight: bolder;
+  padding-left: 30px;
+}

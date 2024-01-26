@@ -58,7 +58,7 @@ function Register() {
     <div className="register--container">
       
       <form onSubmit={handleSubmit} className="register--form">
-        <label>Username</label>
+        <label id='username-input'>Username</label>
         <br />
         <input
           value={username}
@@ -87,17 +87,18 @@ function Register() {
           type="password"
           
         />
-        {passwordError && <p className="error-message">{passwordError}</p>}
+        {passwordError && <p className="error-message" style={{ marginTop: '0px', marginBottom: '1px',color: 'orangered' }}>{passwordError}</p>}
         <br />
         <button className="submit--field" type="submit">
           Register
         </button>
+        <h4 className='already-have-account'>Already have an Account?
+      <Link to='/login' >Login</Link>
+      </h4>
                
       </form>
 
-      <h4 className='already-have-account'>Already have an Account?
-      <Link to='/login' >Login</Link>
-      </h4>
+      
       
     </div>
   );

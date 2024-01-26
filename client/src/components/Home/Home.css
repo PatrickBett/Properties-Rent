@@ -17,7 +17,7 @@ h1{
   margin-bottom: 250px;
   text-align: center;
   font-family: arial;
-  border-radius: 200px 200px 0 0;
+  
 }
 .price {
   color: black;
@@ -37,7 +37,7 @@ p{
   width: 100%;
   height: 16em;
   object-fit: cover;
-  border-radius: 200px 200px 0 0;
+  
  
 }
 
