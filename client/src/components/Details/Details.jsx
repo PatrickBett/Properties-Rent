@@ -139,9 +139,11 @@ const handleInputComment =(e)=>{
 
                 <div className='fetched-review-comment'>{review.reviews.map((item)=>(
                   
-                    <li key={item.id} id='item-comment'>
+                    <ul>
+                      <li key={item.id} id='item-comment'>
                     {item.comment}
                   </li>
+                    </ul>
                   
 
                 ))}</div>
