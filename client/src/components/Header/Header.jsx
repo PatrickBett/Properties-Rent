@@ -6,7 +6,7 @@ function Header() {
   return (
     <div className="header">
       <div className="logo">
-        Keja Yangu
+        <img src="./src/components/Header/logo.jpg" alt="" />
       </div>
       <div className="nav-links">
         <ul>
