@@ -6,12 +6,14 @@ function Details() {
   const [comment, setComment] = useState('');
   const [reviews, setReviews] = useState([]);
   const { id } = useParams();
+  const [house_id, sethouse_id] = useState('')
   const [propertyDetails, setPropertyDetails] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`http://127.0.0.1:5000/house/${id}`);
+        sethouse_id(id)
         if (!response.ok) {
           console.error('Property not found');
           return;
@@ -36,18 +38,9 @@ function Details() {
       }
 
       const reviewsData = await response.json();
-      console.log(reviewsData)
+      // console.log(reviewsData)
       
       setReviews(reviewsData);
-  
-
-
-      
-
-
-
-
-
 
 
     } catch (error) {
@@ -59,9 +52,18 @@ function Details() {
     fetchReviews();
   }, [id]); // Re-run the effect when the id changes
 
+
+const handleInputComment =(e)=>{
+  e.preventDefault()
+  const user_comment = e.target.value
+  console.log(user_comment)
+  setComment(user_comment)
+}
+
+  
   const handleReview = async (e) => {
     e.preventDefault();
-    console.log(propertyDetails)
+    // console.log(propertyDetails)
 
        try {
       const response = await fetch(`http://127.0.0.1:5000/review`, {
@@ -69,7 +71,7 @@ function Details() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ comment, propertyId: id }),
+        body: JSON.stringify({ comment,house_id, propertyId: id }),
       });
 
       if (!response.ok) {
@@ -124,7 +126,7 @@ function Details() {
             <textarea id='comment-section' 
               placeholder="Write a Review"
               value={comment}
-              onChange={(e) => setComment(e.target.value)}
+              onChange={handleInputComment}
             ></textarea>
             <br/>
             <button type="submit" className='submit-review-Btn'>Submit</button>
